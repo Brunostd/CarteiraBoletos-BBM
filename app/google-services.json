@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "781976630601",
+    "project_id": "carteiraboletos",
+    "storage_bucket": "carteiraboletos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781976630601:android:9317a32668be06ec3e5698",
+        "android_client_info": {
+          "package_name": "com.deny.guardandoboletos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781976630601-ro1os5omh82hiipu1r5suckp043010hk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deny.guardandoboletos",
+            "certificate_hash": "a93dd328be732a6c02efac788adfe483be28d553"
+          }
+        },
+        {
+          "client_id": "781976630601-t8olotgmggbgineer22rouqv5psnqu4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALFJPebOdb3GXGLAj8kg4RcIABID9mMJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781976630601-t8olotgmggbgineer22rouqv5psnqu4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
