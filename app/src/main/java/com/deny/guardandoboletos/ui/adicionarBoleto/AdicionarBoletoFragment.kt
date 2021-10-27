@@ -67,7 +67,7 @@ class AdicionarBoletoFragment : Fragment() {
         recebeData.setText(DateUtil.dataAtual())
 
         binding.imageButtonCadastrarBoleto.setOnClickListener(View.OnClickListener {
-            if (!binding.editTextTituloBoleto.text.isEmpty() && !binding.editTextValorBoleto.text.isEmpty()){
+            if (!binding.editTextTituloBoleto.text.isEmpty() && !binding.editTextValorBoleto.text.isEmpty() && !recebePrioridade.isEmpty() && !binding.editTextDataBoleto.text.isEmpty()){
                 var note: Boleto = Boleto(
                     id = id,
                     titulo = binding.editTextTituloBoleto.text.toString(),

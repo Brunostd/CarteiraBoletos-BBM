@@ -36,6 +36,7 @@ class HomeFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+
         consultar()
     }
 
@@ -49,7 +50,6 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
 
 
         val fab: View = root.findViewById(R.id.fab)
