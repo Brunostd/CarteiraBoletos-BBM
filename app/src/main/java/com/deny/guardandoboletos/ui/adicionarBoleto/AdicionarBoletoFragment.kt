@@ -33,6 +33,11 @@ class AdicionarBoletoFragment : Fragment() {
     var recebePrioridade: String = ""
     var     recebeImagem: Int = R.drawable.conta_agua
 
+    var   recebeTituloBoleto: String = ""
+    var     recebeDataBoleto: String = ""
+    var    recebeValorBoleto: String = ""
+    lateinit var  recebeData: EditText
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -53,22 +58,22 @@ class AdicionarBoletoFragment : Fragment() {
         buttonPrioridade(root)
         recuperarEdicao()
 
-        var                   id: String = Base64Custom.codificarBase64(autenticacao.currentUser?.getEmail())
-        var   recebeTituloBoleto: String   = binding.editTextTituloBoleto.text.toString()
-        var     recebeDataBoleto: String   = binding.editTextDataBoleto.text.toString()
-        var    recebeValorBoleto: String   = binding.editTextDataBoleto.text.toString()
-        var           recebeData: EditText = binding.editTextDataBoleto
+        var       id: String = Base64Custom.codificarBase64(autenticacao.currentUser?.getEmail())
+          recebeTituloBoleto = binding.editTextTituloBoleto.getText().toString()
+           recebeDataBoleto  = binding.editTextDataBoleto.getText().toString()
+         recebeValorBoleto   = binding.editTextDataBoleto.getText().toString()
+         recebeData          = binding.editTextDataBoleto
 
         recebeData.setText(DateUtil.dataAtual())
 
         binding.imageButtonCadastrarBoleto.setOnClickListener(View.OnClickListener {
-            if (!recebeTituloBoleto.isEmpty() && !recebeData.text.isEmpty() && !recebeValorBoleto.isEmpty() && !recebePrioridade.isEmpty()){
+            if (!binding.editTextTituloBoleto.text.isEmpty() && !binding.editTextValorBoleto.text.isEmpty()){
                 var note: Boleto = Boleto(
                     id = id,
-                    titulo = recebeTituloBoleto,
+                    titulo = binding.editTextTituloBoleto.text.toString(),
                     prioridadeBoleto = recebePrioridade,
-                    valorBoleto = recebeValorBoleto,
-                    dataBoleto = recebeDataBoleto,
+                    valorBoleto = binding.editTextValorBoleto.text.toString(),
+                    dataBoleto = binding.editTextDataBoleto.text.toString(),
                     avatar = recebeImagem
                 )
                 firestoreDB.collection("boletos").add(note.toMap())
