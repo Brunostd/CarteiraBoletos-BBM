@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,7 +22,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/buttonSegundoAno"
+        android:id="@+id/buttonPrioridadeMedia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -34,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/buttonPrimeiroAno"
+        android:id="@+id/buttonPrioridadeBaixa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="75dp"
@@ -42,11 +43,11 @@
         android:text="1º"
         android:textColor="#FFFFFF"
         app:cornerRadius="10dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonSegundoAno"
-        app:layout_constraintEnd_toEndOf="@+id/buttonSegundoAno" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPrioridadeMedia"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPrioridadeMedia" />
 
     <Button
-        android:id="@+id/buttonTerceiroAno"
+        android:id="@+id/buttonPrioridadeAlta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="71dp"
@@ -54,8 +55,8 @@
         android:text="3º"
         android:textColor="#FFFFFF"
         app:cornerRadius="10dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonSegundoAno"
-        app:layout_constraintStart_toStartOf="@+id/buttonSegundoAno" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPrioridadeMedia"
+        app:layout_constraintStart_toStartOf="@+id/buttonPrioridadeMedia" />
 
     <TextView
         android:id="@+id/textView4"
@@ -76,7 +77,7 @@
         android:src="@drawable/conta_agua"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPrimeiroAno" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonPrioridadeBaixa" />
 
     <ImageButton
         android:id="@+id/imageButtonTipoBoleto"
@@ -105,7 +106,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButtonCadastrarBoleto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
