@@ -30,5 +30,21 @@
         android:id="@+id/adicionarBoletoFragment"
         android:name="com.deny.guardandoboletos.ui.adicionarBoleto.AdicionarBoletoFragment"
         android:label="adicionar_boleto_fragment"
-        tools:layout="@layout/adicionar_boleto_fragment" />
+        tools:layout="@layout/adicionar_boleto_fragment" >
+        <action
+            android:id="@+id/action_adicionarBoletoFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_adicionarBoletoFragment_to_escolherImagemFragment"
+            app:destination="@id/escolherImagemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/escolherImagemFragment"
+        android:name="com.deny.guardandoboletos.ui.escolherImagem.EscolherImagemFragment"
+        android:label="escolher_imagem_fragment"
+        tools:layout="@layout/escolher_imagem_fragment" >
+        <action
+            android:id="@+id/action_escolherImagemFragment_to_adicionarBoletoFragment"
+            app:destination="@id/adicionarBoletoFragment" />
+    </fragment>
 </navigation>
