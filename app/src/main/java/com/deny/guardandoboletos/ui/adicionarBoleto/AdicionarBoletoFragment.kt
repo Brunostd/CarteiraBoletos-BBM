@@ -112,6 +112,7 @@ class AdicionarBoletoFragment : Fragment() {
             Toast.makeText(root.context,
                 "Você escolheu: " + recebePrioridade,
                 Toast.LENGTH_SHORT).show()
+            binding.textViewEditarPrioridade.setText(recebePrioridade)
         })
 
         binding.buttonPrioridadeMedia.setOnClickListener(View.OnClickListener {
@@ -119,6 +120,7 @@ class AdicionarBoletoFragment : Fragment() {
             Toast.makeText(root.context,
                 "Você escolheu: " + recebePrioridade,
                 Toast.LENGTH_SHORT).show()
+            binding.textViewEditarPrioridade.setText(recebePrioridade)
         })
 
         binding.buttonPrioridadeAlta.setOnClickListener(View.OnClickListener {
@@ -126,6 +128,7 @@ class AdicionarBoletoFragment : Fragment() {
             Toast.makeText(root.context,
                 "Você escolheu: " + recebePrioridade,
                 Toast.LENGTH_SHORT).show()
+            binding.textViewEditarPrioridade.setText(recebePrioridade)
         })
     }
 

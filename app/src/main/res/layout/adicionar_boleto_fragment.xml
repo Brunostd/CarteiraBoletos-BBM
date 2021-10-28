@@ -31,41 +31,41 @@
         android:id="@+id/buttonPrioridadeMedia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#8BC34A"
         android:text="2º"
         android:textColor="#FFFFFF"
         app:cornerRadius="10dp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintEnd_toStartOf="@+id/buttonPrioridadeAlta"
+        app:layout_constraintStart_toEndOf="@+id/buttonPrioridadeBaixa"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEditarPrioridade" />
 
     <Button
         android:id="@+id/buttonPrioridadeBaixa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="75dp"
+        android:layout_marginStart="84dp"
         android:backgroundTint="#8BC34A"
         android:text="1º"
         android:textColor="#FFFFFF"
         app:cornerRadius="10dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonPrioridadeMedia"
-        app:layout_constraintEnd_toEndOf="@+id/buttonPrioridadeMedia" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonPrioridadeAlta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="71dp"
+        android:layout_marginEnd="84dp"
         android:backgroundTint="#8BC34A"
         android:text="3º"
         android:textColor="#FFFFFF"
         app:cornerRadius="10dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonPrioridadeMedia"
-        app:layout_constraintStart_toStartOf="@+id/buttonPrioridadeMedia" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewEditarPrioridade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

@@ -115,7 +115,13 @@ class HomeFragment : Fragment() {
                     note!!.id = dataObject.id
 
                     //var p: Boleto = Boleto(nome = note!!.nome, anoEscolar = note!!.anoEscolar, avatar = note!!.avatar)
-                    var p: Boleto = Boleto(titulo = note!!.titulo, avatar = note!!.avatar, prioridadeBoleto = note!!.prioridadeBoleto)
+                    var p: Boleto = Boleto(
+                        titulo           = note!!.titulo,
+                        avatar           = note!!.avatar,
+                        prioridadeBoleto = note!!.prioridadeBoleto,
+                        valorBoleto      = note!!.valorBoleto,
+                        dataBoleto       = note!!.dataBoleto
+                    )
                     this.listBoletos.add(p)
 
                     binding.recyclerViewConsultar.adapter = BoletoAdapter(listBoletos)
