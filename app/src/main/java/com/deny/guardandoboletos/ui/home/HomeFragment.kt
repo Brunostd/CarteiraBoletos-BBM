@@ -5,14 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.deny.guardandoboletos.R
 import com.deny.guardandoboletos.adapter.BoletoAdapter
 import com.deny.guardandoboletos.databinding.FragmentHomeBinding
 import com.deny.guardandoboletos.helper.Base64Custom
+import com.deny.guardandoboletos.helper.RecyclerItemClickListener
 import com.deny.guardandoboletos.model.Boleto
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
@@ -51,6 +55,39 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        var recyclerView: RecyclerView = binding.recyclerViewConsultar
+
+        recyclerView.addOnItemTouchListener(
+            RecyclerItemClickListener(context, recyclerView, object :
+                RecyclerItemClickListener.OnItemClickListener {
+                override fun onItemClick(view: View, position: Int) {
+                    var resultId = listBoletos[position].id
+                    var resultTitulo = listBoletos[position].titulo
+                    var resultData = listBoletos[position].dataBoleto
+                    var resultPrioridade = listBoletos[position].prioridadeBoleto
+                    var resultValor = listBoletos[position].valorBoleto
+                    var resultAvatar = listBoletos[position].avatar
+                    var bundle: Bundle = Bundle()
+
+                    setFragmentResult("requestKeyId", bundleOf("bundleKeyId" to resultId))
+                    setFragmentResult("requestKeyTitulo", bundleOf("bundleKeyTitulo" to resultTitulo))
+                    setFragmentResult("requestKeyData", bundleOf("bundleKeyData" to resultData))
+                    setFragmentResult("requestKeyPrioridade", bundleOf("bundleKeyPrioridade" to resultPrioridade))
+                    setFragmentResult("requestKeyValor", bundleOf("bundleKeyValor" to resultValor))
+                    setFragmentResult("requestKeyAvatar", bundleOf("bundleKeyAvatar" to resultAvatar))
+
+                    listBoletos.set(position, boleto)
+                    boletosAdapter.notifyItemChanged(position)
+
+                    Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_editarBoletoFragment)
+
+                }
+
+                override fun onLongItemClick(view: View, position: Int) {
+
+                }
+            })
+        )
 
         val fab: View = root.findViewById(R.id.fab)
         fab.setOnClickListener { view ->

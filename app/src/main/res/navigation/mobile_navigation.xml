@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_adicionarBoletoFragment"
             app:destination="@id/adicionarBoletoFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_editarBoletoFragment"
+            app:destination="@id/editarBoletoFragment" />
     </fragment>
 
     <fragment
@@ -46,5 +49,14 @@
         <action
             android:id="@+id/action_escolherImagemFragment_to_adicionarBoletoFragment"
             app:destination="@id/adicionarBoletoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarBoletoFragment"
+        android:name="com.deny.guardandoboletos.ui.editarBoleto.EditarBoletoFragment"
+        android:label="editar_boleto_fragment"
+        tools:layout="@layout/editar_boleto_fragment" >
+        <action
+            android:id="@+id/action_editarBoletoFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 </navigation>
