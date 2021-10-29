@@ -1,6 +1,7 @@
 package com.deny.guardandoboletos.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.deny.guardandoboletos.ConteudoActivity
 import com.deny.guardandoboletos.R
 import com.deny.guardandoboletos.adapter.BoletoAdapter
 import com.deny.guardandoboletos.databinding.FragmentHomeBinding
