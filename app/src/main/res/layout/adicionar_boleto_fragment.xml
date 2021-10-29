@@ -133,7 +133,7 @@
         android:background="#98ED0E"
         android:gravity="center|right"
         android:padding="10dp"
-        android:text="R$"
+        android:text="INSERIR VALOR: R$"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

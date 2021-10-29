@@ -37,5 +37,14 @@
         app:backgroundTint="#8BC34A"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerViewConsultar"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewConsultar"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewConsultar"
+        app:srcCompat="@drawable/selecionar_boleto" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

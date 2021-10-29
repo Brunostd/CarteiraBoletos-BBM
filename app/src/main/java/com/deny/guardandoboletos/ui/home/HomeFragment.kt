@@ -28,6 +28,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class HomeFragment : Fragment() {
 
@@ -38,6 +40,7 @@ class HomeFragment : Fragment() {
     var boleto: Boleto = Boleto()
     var boletosAdapter: BoletoAdapter = BoletoAdapter(listBoletos)
 
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -45,9 +48,8 @@ class HomeFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        consultar()
+        coroutine()
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,6 +61,7 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
         val swipeHandler = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.START or ItemTouchHelper.END) {
             override fun onMove(
@@ -108,7 +111,7 @@ class HomeFragment : Fragment() {
 
                 override fun onLongItemClick(view: View, position: Int) {
                     Toast.makeText(root.context,
-                        "Caso queira excluir arraste o item para alguns dos lados",
+                        "Caso queira excluir o item desejado arraste para alguns dos lados",
                         Toast.LENGTH_LONG).show()
                 }
             })
@@ -126,34 +129,39 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    fun coroutine() = runBlocking {
+        launch {
+            consultar()
+        }
+    }
+
     fun consultar(){
 
         var autenticacao: FirebaseAuth = FirebaseAuth.getInstance()
         var id: String = Base64Custom.codificarBase64(autenticacao.currentUser?.getEmail())
-        var databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
 
-        firestoreDB.collection("boletos").get().addOnCompleteListener(OnCompleteListener {
-            for (dataObject in it.getResult()!!.documents){
-                var note = dataObject.toObject(Boleto::class.java)
+            firestoreDB.collection("boletos").get().addOnCompleteListener(OnCompleteListener {
+                for (dataObject in it.getResult()!!.documents){
+                    var note = dataObject.toObject(Boleto::class.java)
 
-                if (note!!.id.equals(id)) {
-                    note!!.id = dataObject.id
+                    if (note!!.id.equals(id)) {
+                        note!!.id = dataObject.id
 
-                    //var p: Boleto = Boleto(nome = note!!.nome, anoEscolar = note!!.anoEscolar, avatar = note!!.avatar)
-                    var p: Boleto = Boleto(
-                        titulo           = note!!.titulo,
-                        avatar           = note!!.avatar,
-                        prioridadeBoleto = note!!.prioridadeBoleto,
-                        valorBoleto      = note!!.valorBoleto,
-                        dataBoleto       = note!!.dataBoleto
-                    )
-                    this.listBoletos.add(p)
+                        //var p: Boleto = Boleto(nome = note!!.nome, anoEscolar = note!!.anoEscolar, avatar = note!!.avatar)
+                        var p: Boleto = Boleto(
+                            titulo           = note!!.titulo,
+                            avatar           = note!!.avatar,
+                            prioridadeBoleto = note!!.prioridadeBoleto,
+                            valorBoleto      = note!!.valorBoleto,
+                            dataBoleto       = note!!.dataBoleto
+                        )
+                        this.listBoletos.add(p)
 
-                    binding.recyclerViewConsultar.adapter = BoletoAdapter(listBoletos)
-                    binding.recyclerViewConsultar.layoutManager = GridLayoutManager(context, 2)
+                        binding.recyclerViewConsultar.adapter = BoletoAdapter(listBoletos)
+                        binding.recyclerViewConsultar.layoutManager = GridLayoutManager(context, 2)
+                    }
                 }
-            }
-        })
+            })
     }
 
     override fun onDestroyView() {

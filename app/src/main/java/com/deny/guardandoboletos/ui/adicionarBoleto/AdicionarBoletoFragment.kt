@@ -30,12 +30,9 @@ class AdicionarBoletoFragment : Fragment() {
     private var _binding: AdicionarBoletoFragmentBinding? = null
     var autenticacao: FirebaseAuth = ConfiguracaoFirebase.getAutenticacao()
     var firestoreDB : FirebaseFirestore = FirebaseFirestore.getInstance()
+
     var recebePrioridade: String = ""
     var     recebeImagem: Int = R.drawable.conta_agua
-
-    var   recebeTituloBoleto: String = ""
-    var     recebeDataBoleto: String = ""
-    var    recebeValorBoleto: String = ""
     lateinit var  recebeData: EditText
 
     // This property is only valid between onCreateView and
@@ -59,10 +56,7 @@ class AdicionarBoletoFragment : Fragment() {
         recuperarEdicao()
 
         var       id: String = Base64Custom.codificarBase64(autenticacao.currentUser?.getEmail())
-          recebeTituloBoleto = binding.editTextTituloBoleto.getText().toString()
-           recebeDataBoleto  = binding.editTextDataBoleto.getText().toString()
-         recebeValorBoleto   = binding.editTextDataBoleto.getText().toString()
-         recebeData          = binding.editTextDataBoleto
+        recebeData          = binding.editTextDataBoleto
 
         recebeData.setText(DateUtil.dataAtual())
 
@@ -76,8 +70,11 @@ class AdicionarBoletoFragment : Fragment() {
                     dataBoleto = binding.editTextDataBoleto.text.toString(),
                     avatar = recebeImagem
                 )
+
+                Navigation.findNavController(root).navigate(R.id.action_adicionarBoletoFragment_to_navigation_home)
                 firestoreDB.collection("boletos").add(note.toMap())
                 Toast.makeText(root.context, "Boletos cadastrado com sucesso", Toast.LENGTH_LONG).show()
+
             } else{
                 Toast.makeText(root.context,
                     "Você deixou de digitar o titulo ou a prioridade ou a data ou o valor",
