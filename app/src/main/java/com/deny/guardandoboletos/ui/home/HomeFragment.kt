@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.deny.guardandoboletos.R
 import com.deny.guardandoboletos.adapter.BoletoAdapter
@@ -19,10 +21,12 @@ import com.deny.guardandoboletos.helper.Base64Custom
 import com.deny.guardandoboletos.helper.RecyclerItemClickListener
 import com.deny.guardandoboletos.model.Boleto
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
@@ -44,6 +48,7 @@ class HomeFragment : Fragment() {
         consultar()
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -54,6 +59,24 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val swipeHandler = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.START or ItemTouchHelper.END) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                boletosAdapter.removeAt(viewHolder.adapterPosition)
+            }
+            //...
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerViewConsultar)
 
         var recyclerView: RecyclerView = binding.recyclerViewConsultar
 
@@ -84,7 +107,9 @@ class HomeFragment : Fragment() {
                 }
 
                 override fun onLongItemClick(view: View, position: Int) {
-
+                    Toast.makeText(root.context,
+                        "Caso queira excluir arraste o item para alguns dos lados",
+                        Toast.LENGTH_LONG).show()
                 }
             })
         )
