@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -28,6 +29,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
@@ -74,6 +76,7 @@ class HomeFragment : Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 boletosAdapter.removeAt(viewHolder.adapterPosition)
+                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_conteudoActivity)
             }
             //...
         }
@@ -131,6 +134,7 @@ class HomeFragment : Fragment() {
 
     fun coroutine() = runBlocking {
         launch {
+            delay(1000L)
             consultar()
         }
     }

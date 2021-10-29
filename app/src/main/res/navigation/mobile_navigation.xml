@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_navigation_home_to_editarBoletoFragment"
             app:destination="@id/editarBoletoFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_conteudoActivity"
+            app:destination="@id/conteudoActivity" />
     </fragment>
 
     <fragment
@@ -59,4 +62,8 @@
             android:id="@+id/action_editarBoletoFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <activity
+        android:id="@+id/conteudoActivity"
+        android:name="com.deny.guardandoboletos.ConteudoActivity"
+        android:label="ConteudoActivity" />
 </navigation>
