@@ -2,6 +2,6 @@
     <string name="app_name">GuardandoBoletos</string>
     <string name="title_activity_conteudo">ConteudoActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_info">Info</string>
+    <string name="title_config">Config</string>
 </resources>

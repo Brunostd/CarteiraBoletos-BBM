@@ -21,13 +21,13 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.deny.guardandoboletos.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_info"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.deny.guardandoboletos.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_config"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/adicionarBoletoFragment"
