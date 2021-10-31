@@ -27,7 +27,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/input_email"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textWebEmailAddress|textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/imageButtonRecuperarSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
