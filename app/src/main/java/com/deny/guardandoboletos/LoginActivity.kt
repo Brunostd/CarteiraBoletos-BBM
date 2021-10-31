@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import com.deny.guardandoboletos.config.ConfiguracaoFirebase
 import com.deny.guardandoboletos.model.Usuario
@@ -22,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var        email: EditText
     lateinit var        senha: EditText
     lateinit var buttonEntrar: ImageButton
+    lateinit var esqueciSenha: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         email        = findViewById(R.id.editTextLoginEmail)
         senha        = findViewById(R.id.editTextLoginSenha)
         buttonEntrar = findViewById(R.id.imageButtonLoginEntrar)
+        esqueciSenha = findViewById(R.id.textViewEsqueciSenha)
 
         val imageButtonCadastrar: ImageButton = findViewById(R.id.imageButtonLoginCadastrar)
         val intent = Intent(this, CadastroActivity::class.java)
@@ -42,6 +45,11 @@ class LoginActivity : AppCompatActivity() {
         imageButtonCadastrar.setOnClickListener(View.OnClickListener {
             startActivity(intent)
             finish()
+        })
+
+        esqueciSenha.setOnClickListener(View.OnClickListener {
+            val intentEsqueciSenha: Intent = Intent(this, RecuperarSenhaActivity::class.java)
+            startActivity(intentEsqueciSenha)
         })
     }
 
