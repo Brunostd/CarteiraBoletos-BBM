@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import com.deny.guardandoboletos.config.ConfiguracaoFirebase
 import com.deny.guardandoboletos.helper.Base64Custom
@@ -24,12 +25,19 @@ class CadastroActivity : AppCompatActivity() {
     lateinit var email: EditText
     lateinit var senha: EditText
 
+    lateinit var textViewVoltarLogin: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
         supportActionBar?.setTitle("Tela de cadastro")
 
+        textViewVoltarLogin = findViewById(R.id.textViewVoltarLogin)
+        textViewVoltarLogin.setOnClickListener(View.OnClickListener {
+            var intentVoltarLogin: Intent = Intent(this, LoginActivity::class.java)
+            startActivity(intentVoltarLogin)
+            finish()
+        })
 
         email = findViewById(R.id.editTextCadastroEmail)
         senha = findViewById(R.id.editTextCadastroSenha)

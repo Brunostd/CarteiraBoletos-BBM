@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         esqueciSenha = findViewById(R.id.textViewEsqueciSenha)
 
         val imageButtonCadastrar: ImageButton = findViewById(R.id.imageButtonLoginCadastrar)
-        val intent = Intent(this, CadastroActivity::class.java)
+        val intent = Intent(this, DadosPessoaisActivity::class.java)
 
         buttonEntrar.setOnClickListener(View.OnClickListener {
             login()

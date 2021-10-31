@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuardandoBoletos">
         <activity
+            android:name=".DadosPessoaisActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecuperarSenhaActivity"
             android:exported="false" />
         <activity

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +21,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ImageButton buttonRecuperarSenha;
     private EditText    recebeEmail;
+    private TextView    textViewVoltarLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
         buttonRecuperarSenha = findViewById(R.id.imageButtonRecuperarSenha);
         recebeEmail          = findViewById(R.id.editTextRecuperarEmail);
+        textViewVoltarLogin  = findViewById(R.id.textViewRecuperarVoltarLogin);
         firebaseAuth         = FirebaseAuth.getInstance();
 
         buttonRecuperarSenha.setOnClickListener(new View.OnClickListener() {
@@ -58,5 +61,12 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
             }
         });
 
+        textViewVoltarLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RecuperarSenhaActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
     }
 }

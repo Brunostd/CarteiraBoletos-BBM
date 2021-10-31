@@ -6,7 +6,8 @@
         <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/activity_cadastro.xml" value="0.13272543059777103" />
         <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/activity_conteudo.xml" value="0.13632246376811594" />
-        <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/activity_login.xml" value="0.18" />
+        <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/activity_dados_pessoais.xml" value="0.16" />
+        <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/activity_recuperar_senha.xml" value="0.25" />
         <entry key="..\:/Users/moise/AndroidStudioProjects/GuardandoBoletos/app/src/main/res/layout/adicionar_boleto_fragment.xml" value="0.25" />
