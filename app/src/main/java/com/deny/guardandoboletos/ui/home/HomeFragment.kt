@@ -79,6 +79,7 @@ class HomeFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 boletosAdapter.removeAt(viewHolder.adapterPosition)
                 Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_conteudoActivity)
+                activity?.finish()
             }
             //...
         }
