@@ -11,14 +11,15 @@
         android:theme="@style/Theme.GuardandoBoletos">
         <activity
             android:name=".DadosPessoaisActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RecuperarSenhaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ConteudoActivity"
             android:exported="false"
-            android:label="@string/title_activity_conteudo"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CadastroActivity"

@@ -46,6 +46,7 @@ class EditarBoletoFragment : Fragment() {
             ViewModelProvider(this).get(EditarBoletoViewModel::class.java)
 
         (context as AppCompatActivity).supportActionBar!!.title = "Editar boleto"
+        (context as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
         _binding = EditarBoletoFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root

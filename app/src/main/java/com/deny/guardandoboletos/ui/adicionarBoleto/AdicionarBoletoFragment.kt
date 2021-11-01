@@ -1,9 +1,12 @@
 package com.deny.guardandoboletos.ui.adicionarBoleto
 
+import android.app.ActionBar
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -12,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
+import com.deny.guardandoboletos.ConteudoActivity
 import com.deny.guardandoboletos.R
 import com.deny.guardandoboletos.config.ConfiguracaoFirebase
 import com.deny.guardandoboletos.databinding.AdicionarBoletoFragmentBinding
@@ -23,6 +27,11 @@ import com.deny.guardandoboletos.ui.home.HomeViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import androidx.appcompat.app.ActionBar as ActionBar1
+import androidx.core.app.NavUtils
+
+
+
 
 class AdicionarBoletoFragment : Fragment() {
 
@@ -51,24 +60,25 @@ class AdicionarBoletoFragment : Fragment() {
         val root: View = binding.root
 
         (context as AppCompatActivity).supportActionBar!!.title = "Adicionar boleto"
+        (context as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
         buttonPrioridade(root)
         recuperarEdicao()
 
         var       id: String = Base64Custom.codificarBase64(autenticacao.currentUser?.getEmail())
-        recebeData          = binding.editTextDataBoleto
+        recebeData           = binding.editTextDataBoleto
 
         recebeData.setText(DateUtil.dataAtual())
 
         binding.imageButtonCadastrarBoleto.setOnClickListener(View.OnClickListener {
             if (!binding.editTextTituloBoleto.text.isEmpty() && !binding.editTextValorBoleto.text.isEmpty() && !recebePrioridade.isEmpty() && !binding.editTextDataBoleto.text.isEmpty()){
                 var note: Boleto = Boleto(
-                    id = id,
-                    titulo = binding.editTextTituloBoleto.text.toString(),
-                    prioridadeBoleto = recebePrioridade,
-                    valorBoleto = binding.editTextValorBoleto.text.toString(),
-                    dataBoleto = binding.editTextDataBoleto.text.toString(),
-                    avatar = recebeImagem
+                    id                  = id,
+                    titulo              = binding.editTextTituloBoleto.text.toString(),
+                    prioridadeBoleto    = recebePrioridade,
+                    valorBoleto         = binding.editTextValorBoleto.text.toString(),
+                    dataBoleto          = binding.editTextDataBoleto.text.toString(),
+                    avatar              = recebeImagem
                 )
 
                 Navigation.findNavController(root).navigate(R.id.action_adicionarBoletoFragment_to_navigation_home)

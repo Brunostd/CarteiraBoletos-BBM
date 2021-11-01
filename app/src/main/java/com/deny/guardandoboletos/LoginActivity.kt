@@ -44,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
 
         imageButtonCadastrar.setOnClickListener(View.OnClickListener {
             startActivity(intent)
-            finish()
         })
 
         esqueciSenha.setOnClickListener(View.OnClickListener {
