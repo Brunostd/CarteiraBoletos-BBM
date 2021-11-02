@@ -91,6 +91,9 @@ class EscolherImagemFragment : Fragment() {
 
         imagem = Imagem(R.drawable.conta_deposito)
         listaImagem.add(imagem)
+
+        imagem = Imagem(R.drawable.outros)
+        listaImagem.add(imagem)
     }
 
     override fun onDestroyView() {
