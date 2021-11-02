@@ -83,7 +83,7 @@ class AdicionarBoletoFragment : Fragment() {
 
                 Navigation.findNavController(root).navigate(R.id.action_adicionarBoletoFragment_to_navigation_home)
                 firestoreDB.collection("boletos").add(note.toMap())
-                Toast.makeText(root.context, "Boletos cadastrado com sucesso", Toast.LENGTH_LONG).show()
+                Toast.makeText(root.context, "Boleto cadastrado com sucesso", Toast.LENGTH_LONG).show()
 
             } else{
                 Toast.makeText(root.context,
